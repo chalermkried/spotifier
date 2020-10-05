@@ -1,0 +1,13 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "targets": "defaults"
+        }
+      }
+    ]
+  ],
+  "plugins": [["styled-components", { "ssr": false }]]
+}
