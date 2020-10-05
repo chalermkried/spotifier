@@ -1,3 +1,4 @@
+import Auth from 'components/auth'
 import Head from 'next/head'
 
 export default function Home() {
@@ -5,12 +6,12 @@ export default function Home() {
     <>
       <Head>
         <title>Spotifier</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="favicon.ico" />
       </Head>
 
-      <main>Main</main>
-
-      <footer>Footer</footer>
+      <main>
+        <Auth />
+      </main>
     </>
   )
 }

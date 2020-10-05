@@ -47,12 +47,17 @@ html {
   font-family: var(--ff);
 
   /* Project root variables */
+
   --ff: system-ui, /* macOS 10.11-10.12 */ -apple-system,
     /* Windows 6+ */ 'Segoe UI', /* Android 4+ */ 'Roboto',
     /* Ubuntu 10.10+ */ 'Ubuntu', /* Gnome 3+ */ 'Cantarell',
     /* KDE Plasma 5+ */ 'Noto Sans', /* fallback */ sans-serif,
     /* macOS emoji */ 'Apple Color Emoji', /* Windows emoji */ 'Segoe UI Emoji',
     /* Windows emoji */ 'Segoe UI Symbol', /* Linux emoji */ 'Noto Color Emoji';
+  --bg: #191919;
+  --bg2: #0e0e0e;
+  --sec: #dedede; /* secondary */
+  --bd: #2b2b2b; /* Border */
 }
 
 /* Sections
@@ -63,6 +68,8 @@ html {
    */
 
 body {
+  background-color: var(--bg);
+  color: var(--sec);
   margin: 0;
 }
 

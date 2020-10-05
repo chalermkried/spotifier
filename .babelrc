@@ -9,5 +9,5 @@
       }
     ]
   ],
-  "plugins": [["styled-components", { "ssr": false }]]
+  "plugins": [["styled-components", { "ssr": true }]]
 }
