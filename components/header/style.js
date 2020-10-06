@@ -1,6 +1,7 @@
 import { CONTAINER_MAX_WIDTH, MEDIA_QUERY } from 'lib/const'
 import styled from 'styled-components'
 
+// eslint-disable-next-line import/prefer-default-export
 export const Nav = styled.nav`
   background-color: var(--bg2);
   height: 44px;
