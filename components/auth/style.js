@@ -1,7 +1,7 @@
 import { MEDIA_QUERY } from 'lib/const'
 import styled from 'styled-components'
 
-const Wrapper = styled.section`
+export const Wrapper = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,15 +19,18 @@ const Wrapper = styled.section`
     align-items: center;
     justify-content: center;
 
-    .title {
-      margin: 0 0 40px;
-    }
-
     @media ${MEDIA_QUERY.tabletAndUp} {
       width: 400px;
       min-height: auto;
     }
+
+    .title {
+      margin: 0 0 40px;
+    }
+
+    .loading {
+      opacity: 0.5;
+      pointer-events: none;
+    }
   }
 `
-
-export { Wrapper }

@@ -24,6 +24,34 @@
   vertical-align: inherit; /* 2 */
 }
 
+/* latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url(https://fonts.gstatic.com/s/poppins/v13/pxiEyp8kv8JHgFVrJJfecg.woff2)
+      format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Proza Libre';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Proza Libre Medium'), local('ProzaLibre-Medium'),
+    url(https://fonts.gstatic.com/s/prozalibre/v5/LYjbdGHgj0k1DIQRyUEyyELbV8_YeJE.woff2)
+      format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 /** 
    * 1. Use the default cursor in all browsers (opinionated).
    * 2. Change the line height in all browsers (opinionated).
@@ -44,7 +72,7 @@ html {
   -webkit-text-size-adjust: 100%; /* 5 */
   word-break: break-word; /* 6 */
   scroll-behavior: smooth;
-  font-family: var(--ff);
+  font-family: 'Poppins', var(--ff);
 
   /* Project root variables */
 
@@ -80,6 +108,14 @@ ul {
 }
 
 p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Proza Libre', var(--ff);
   margin: 0;
 }
 
