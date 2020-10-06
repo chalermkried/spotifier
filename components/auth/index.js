@@ -92,14 +92,14 @@ function Auth() {
           </p>
         )}
         <a
-          className={isLoading ? 'loading' : ''}
+          className={`menu${isLoading ? ' loading' : ''}`}
           href={getImplicitGrantLink()}
           target="_self"
         >
           Continue with Spotify
         </a>
         <a
-          className={isLoading ? 'loading' : ''}
+          className={`menu${isLoading ? ' loading' : ''}`}
           href="/feed"
           onClick={logInAsGuest}
         >

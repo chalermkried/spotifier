@@ -28,6 +28,7 @@ export const Nav = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
+    cursor: pointer;
 
     @media ${MEDIA_QUERY.tabletAndUp} {
       right: auto;

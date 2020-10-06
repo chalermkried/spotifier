@@ -38,7 +38,9 @@ function Header() {
   return (
     <Nav>
       <div className="container">
-        <h3 className="left-block">{TITLE}</h3>
+        <h3 className="left-block" onClick={() => window.scroll(0, 0)}>
+          {TITLE}
+        </h3>
         <Search />
         <div className="right-block">
           {isLoggedIn ? (

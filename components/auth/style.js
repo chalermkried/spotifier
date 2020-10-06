@@ -38,5 +38,9 @@ export const Wrapper = styled.section`
       font-size: 14px;
       margin-bottom: 16px;
     }
+
+    .menu {
+      margin: 8px 0;
+    }
   }
 `

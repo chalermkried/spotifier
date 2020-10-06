@@ -5,13 +5,15 @@ import { useRef, useState } from 'react'
 import styled from 'styled-components'
 
 const Div = styled.div`
-  width: 100%;
+  width: ${(props) => (props.isForceOpened ? '100%' : 'auto')};
   position: relative;
   z-index: 1;
   display: flex;
+  margin-right: auto;
 
   @media ${MEDIA_QUERY.tabletAndUp} {
     width: auto;
+    margin-right: 0;
   }
 
   .input {
@@ -63,7 +65,9 @@ function Search() {
   }
 
   const forceOpenSearchOff = () => {
+    inputRef.current.value = ''
     setIsForceOpened(false)
+    setLocalSearch()
   }
 
   const _ = useDebounce(
@@ -79,7 +83,7 @@ function Search() {
   }
 
   return (
-    <Div>
+    <Div isForceOpened={isForceOpened}>
       <button className="icon search" type="button" onClick={forceOpenSearchOn}>
         <img alt="search" src="/icons/search.svg" />
       </button>
