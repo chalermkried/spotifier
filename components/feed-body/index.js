@@ -1,7 +1,8 @@
+import useIntersection from 'components/shared/use-intersection'
 import { apiGetNewRelease } from 'lib/api'
 import { CONTAINER_MAX_WIDTH, MEDIA_QUERY } from 'lib/const'
 import useStore from 'lib/store'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Card from './card'
 
@@ -25,21 +26,55 @@ const Section = styled.section`
       grid-gap: 24px 16px;
     }
   }
+
+  .fetch-trigger {
+    height: 100vh;
+    margin-top: -100vh;
+  }
+
+  .indicator {
+    text-align: center;
+    margin: 32px 0;
+  }
 `
 
 function FeedBody() {
   const search = useStore((state) => state.search)
   const [items, setItems] = useState([])
+  const [isFetching, setIsFetching] = useState(false)
+  const triggerRef = useRef()
+  const pageRef = useRef(1)
+  const hasMore = useRef(true)
+  const intersection = useIntersection(triggerRef, { threshold: 0.3 })
 
-  useEffect(() => {
-    async function fetchNewRelease() {
-      const res = await apiGetNewRelease({})
-
-      setItems(res.albums.items)
+  async function fetchNewRelease() {
+    if (isFetching || !hasMore.current) {
+      return
     }
 
+    setIsFetching(true)
+
+    const res = await apiGetNewRelease({ page: pageRef.current })
+
+    if (!res.albums.next) {
+      hasMore.current = false
+    }
+
+    pageRef.current += 1
+    setIsFetching(false)
+    setItems([...items, ...res.albums.items])
+  }
+
+  useEffect(() => {
     fetchNewRelease()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+  useEffect(() => {
+    if (intersection?.isIntersecting) {
+      fetchNewRelease()
+    }
+  }, [intersection?.isIntersecting])
 
   const bodyJsx = search ? (
     `searching!: ${search}`
@@ -60,6 +95,8 @@ function FeedBody() {
           />
         ))}
       </div>
+      <div className="fetch-trigger" ref={triggerRef} />
+      {isFetching && <div className="indicator">Fetching Data...</div>}
     </>
   )
 

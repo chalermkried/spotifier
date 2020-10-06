@@ -26,6 +26,7 @@ const Div = styled.div`
   .image {
     margin: 16px 0;
     width: 100%;
+    min-height: 300px;
 
     img {
       width: 100%;
@@ -52,7 +53,7 @@ function Card({ artists, image, type, date, name, tracks, spotifyUri }) {
         <h4 className="name">{name}</h4>
       </div>
       <div className="image">
-        <img alt={name} src={image.url} />
+        <img alt={name} src={image.url} loading="lazy" />
       </div>
       <div className="block">
         <div className="date">{parsedDate}</div>
@@ -72,7 +73,7 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   spotifyUri: PropTypes.string.isRequired,
   tracks: PropTypes.number.isRequired,
-  type: PropTypes.oneOf(['album', 'single']).isRequired,
+  type: PropTypes.string.isRequired,
 }
 
 export default Card
