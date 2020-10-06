@@ -1,4 +1,5 @@
 import CustomHead from 'components/custom-head'
+import FeedBody from 'components/feed-body'
 import Header from 'components/header'
 import OverlayLoader from 'components/shared/overlay-loader'
 import { STORAGE_KEY_TOKEN } from 'lib/const'
@@ -26,7 +27,9 @@ function Feed() {
       {isLoggedIn ? (
         <>
           <Header />
-          <main>Feed Here</main>
+          <main>
+            <FeedBody />
+          </main>
         </>
       ) : (
         <OverlayLoader />

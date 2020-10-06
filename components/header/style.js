@@ -5,6 +5,8 @@ export const Nav = styled.nav`
   background-color: var(--bg2);
   height: 44px;
   border-bottom: 1px solid var(--bd);
+  position: sticky;
+  top: 0;
 
   @media ${MEDIA_QUERY.tabletAndUp} {
     height: 54px;
