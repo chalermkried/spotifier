@@ -81,9 +81,16 @@ function Auth() {
     <Wrapper>
       <div className="auth">
         <h1 className="title">{TITLE}</h1>
-        {hasTokenExpiredError && 'Your token has expired, please log in again.'}
-        {hasAuthError &&
-          'There was something with Spotify authentication, please try again.'}
+        {hasTokenExpiredError && (
+          <p className="warning">
+            Your token has expired, please log in again.
+          </p>
+        )}
+        {hasAuthError && (
+          <p className="warning">
+            There was something with Spotify authentication, please try again.
+          </p>
+        )}
         <a
           className={isLoading ? 'loading' : ''}
           href={getImplicitGrantLink()}

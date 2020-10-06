@@ -12,7 +12,7 @@ export const Wrapper = styled.section`
     border: 1px solid var(--bd);
     padding: 40px 32px;
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -31,6 +31,12 @@ export const Wrapper = styled.section`
     .loading {
       opacity: 0.5;
       pointer-events: none;
+    }
+
+    .warning {
+      color: var(--err);
+      font-size: 14px;
+      margin-bottom: 16px;
     }
   }
 `
