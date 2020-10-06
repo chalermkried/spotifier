@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { apiGetUserInfo } from 'lib/api'
 import { Nav } from './style'
 import UserInfo from './user-info'
+import Search from './search'
 
 function Header() {
   const router = useRouter()
@@ -37,8 +38,8 @@ function Header() {
   return (
     <Nav>
       <div className="container">
-        <h1 className="left-block">{TITLE}</h1>
-        <input type="text" placeholder="Search" />
+        <h3 className="left-block">{TITLE}</h3>
+        <Search />
         <div className="right-block">
           {isLoggedIn ? (
             <UserInfo
