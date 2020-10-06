@@ -1,4 +1,6 @@
+import useDebounce from 'components/shared/use-debounce'
 import { MEDIA_QUERY } from 'lib/const'
+import useStore from 'lib/store'
 import { useRef, useState } from 'react'
 import styled from 'styled-components'
 
@@ -47,6 +49,8 @@ const Div = styled.div`
 `
 
 function Search() {
+  const setSearch = useStore((state) => state.setSearch)
+  const [localSearch, setLocalSearch] = useState()
   const [isForceOpened, setIsForceOpened] = useState(false)
   const inputRef = useRef()
 
@@ -62,6 +66,18 @@ function Search() {
     setIsForceOpened(false)
   }
 
+  const _ = useDebounce(
+    () => {
+      setSearch(localSearch)
+    },
+    1000,
+    [localSearch],
+  )
+
+  const onInputChange = (e) => {
+    setLocalSearch(e.target.value)
+  }
+
   return (
     <Div>
       <button className="icon search" type="button" onClick={forceOpenSearchOn}>
@@ -70,7 +86,8 @@ function Search() {
       <input
         className={`input${isForceOpened ? ' force-open' : ''}`}
         type="text"
-        placeholder="Search"
+        placeholder="Search for album..."
+        onChange={onInputChange}
         ref={inputRef}
       />
       {isForceOpened && (
